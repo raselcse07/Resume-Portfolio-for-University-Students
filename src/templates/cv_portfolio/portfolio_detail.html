@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- viewport meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>Personal Portfolio</title>
+
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="{% static "Profile/css/owl.carousel.css" %}"/>
+
+    <!-- venobox css -->
+    <link rel="stylesheet" href="{% static "Profile/css/css_venobox.css" %}">
+
+    <!-- font awesome -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+
+    <!-- camera css -->
+    <link rel="stylesheet" href="{% static "Profile/css/camera.css" %}">
+
+    <!-- fontello -->
+    <link rel="stylesheet" href="{% static "Profile/css/stroke.css" %}"/>
+
+    <!-- linear icons css -->
+    <link rel="stylesheet" href="{% static "Profile/css/lnr-icon.css" %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+
+    <!-- animte css -->
+    <link rel="stylesheet" href="{% static "Profile/css/animate.css" %}"/>
+
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static "Profile/css/style.css" %}"/>
+
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static "Profile/css/responsive.css" %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body class="single_work_page">
+
+    <!-- start main wrapper .site -->
+    <div class="site">
+        <!-- start header -->
+        <aside class="nav_sidebar">
+
+            <div class="menu_wrapper">
+
+                <div class="main_menu">
+                    <ul>
+                        <li>
+                        <a href="{% url "Academic:detail" user_.dept_name user_.academic_year user_.reg_number %}#home">
+                        <span><i class="fa fa-home" aria-hidden="true"></i></span>
+                        Home</a></li>
+
+                        <li><a href="{% url "Academic:detail" user_.dept_name user_.academic_year user_.reg_number %}#portfolio"><span>
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        </span><p>portfolio</p></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </aside><!-- end header -->
+
+        <!-- menu toggler -->
+        <div class="menu_toggler">
+            <span class="fa fa-bars" aria-hidden="true"></span>
+        </div>
+
+        <!-- main_content -->
+        <div class="main_content">
+
+            <!-- start .single_work -->
+            <section class="single_work single_page active">
+                <div class="single_work_wrapper section_padding">
+                    <!-- start .container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>portfolio Single</h2>
+                                    <p class="sub_title">My latest works</p>
+                                </div>
+                            </div>
+                        </div><!-- end .row -->
+
+                        <!-- start .row -->
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="project_img_slide_wrapper">
+                                    <div>
+                                        <div class="single_img"><img src="{{ qs.project_image.url }}" alt="Single work img" height="100px" width="1000px"  class="img-responsive"></div>
+                                    </div>
+
+                                </div>
+
+                                <!-- start .row -->
+                                <div class="row">
+                                    <!-- start /.col-md-6 -->
+                                    <div class="col-md-6">
+                                        <!-- Project Overview -->
+                                        <div class="project_overview">
+                                            <h4 class="project_title">Project overview</h4>
+
+                                            <p>{{ qs.project_description }}</p>
+
+                                        </div><!-- Project overview -->
+
+                                    </div><!-- end /.col-md-6 -->
+
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div class="project_info_wrapper">
+                                            <h4 class="project_title">Project Details</h4>
+
+                                            <div class="project_infos">
+                                                <ul class="info_list">
+
+                                                    <li><span>Project Name</span><p>{{ qs.project_name }}</p></li>
+                                                    <li><span>Client</span><p>{{ qs.clients }}</p></li>
+                                                    <li><span>Type</span><p>{{ qs.project_type }}</p></li>
+                                                </ul>
+
+                                                <a href="{{ qs.project_url }}" class="btn btn-primary">Project URL</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div> <!-- end /.row -->
+                            </div>
+                        </div><!-- end /.row -->
+                    </div><!-- end  /.container-->
+                </div>
+
+                <!-- start footer -->
+                <footer class="footer">
+                    <p> &copy; 2017 copyright all right reserved. Designed and developed by <a href="#">Md Rasel</a></p>
+                </footer>
+                <!-- end footer -->
+            </section><!-- end /.single_work -->
+        </div><!-- end main_content -->
+    </div><!-- end main wrapper /.site -->
+
+
+
+    <!--//////////////////// JS GOES HERE ////////////////-->
+
+
+        <!-- jquery latest version -->
+        <script src="{% static "Profile/js/jquery-1.12.3.js" %}"></script>
+
+        <!-- bootstrap js -->
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+        <!-- jquery easing 1.3 -->
+        <script src="{% static "Profile/js/jquery.easing1.3.js" %}"></script>
+
+        <!-- Owl carousel js-->
+        <script src="{% static "Profile/js/carousel.min.js" %}"></script>
+
+        <!-- venobox js -->
+        <script src="{% static "Profile/js/venobox.min.js" %}"></script>
+
+        <!-- waypoint js -->
+        <script src="{% static "Profile/js/waypoints.min.js" %}"></script>
+
+        <!-- Counter up js-->
+        <script src="{% static "Profile/js/jquery.counterup.min.js" %}"></script>
+
+        <!-- google map js -->
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeySPFGz7DIUTrReCRQT6HYaMM0ia0knA"></script>
+
+        <!-- uikit js -->
+        <script src="{% static "Profile/js/uikit.min.js" %}"></script>
+
+        <!-- jquery uikit js -->
+        <script src="{% static "Profile/js/grid.min.js" %}"></script>
+
+        <!-- Typed js -->
+        <script src="{% static "Profile/js/typed.min.js" %}"></script>
+
+        <!-- jQuery tubler js -->
+        <script src="{% static "Profile/js/tubular.1.0.js" %}"></script>
+
+        <!-- Main js -->
+        <script src="{% static "Profile/js/main.js" %}"></script>
+
+        <!-- GOOGLE MAP JS -->
+        <script type="text/javascript" src="{% static "Profile/js/map.js" %}"></script>
+</body>
+</html>

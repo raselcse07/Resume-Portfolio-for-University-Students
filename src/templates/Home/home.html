@@ -1,0 +1,138 @@
+{% extends "Home/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- News, Events, About -->
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <section class="news-small" id="news-small">
+                    <header>
+                        <h2>News</h2>
+                    </header>
+                    <div class="section-content">
+
+                        <article>
+                            <figure class="date"><i class="fa fa-file-o"></i>07 Aug,2017</figure>
+                            <header><a href="http://admission.sec.ac.bd" target="_blank">Circular of Sylhet Engineering College is published.</a></header>
+                        </article><!-- /article -->
+
+                        <article>
+                            <figure class="date"><i class="fa fa-file-o"></i>06 Aug,2017</figure>
+                            <header><a href="http://admission.sec.ac.bd" target="_blank">Circular of Sylhet Engineering College is published.</a></header>
+                        </article><!-- /article -->
+
+                        <article>
+                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                            <header><a href="http://admission.sec.ac.bd" target="_blank">Circular of Sylhet Engineering College is published.</a></header>
+                        </article><!-- /article -->
+
+                    </div><!-- /.section-content -->
+                </section><!-- /.news-small -->
+
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4 col-sm-6">
+                <section class="events small" id="events-small">
+                    <header>
+                        <h2>Events</h2>
+                    </header>
+                    <div class="section-content">
+
+                        <article class="event nearest">
+                            <figure class="date">
+                                <div class="month">aug</div>
+                                <div class="day">18</div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="event-detail.html">CSE Fest 2017</a>
+                                </header>
+                                <div class="additional-info">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    Location : Central Lab,SEC</div>
+                                <div class="additional-info">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    Time : 3.30 PM</div>
+                            </aside>
+                        </article><!-- /article -->
+
+                        <article class="event nearest-second">
+                            <figure class="date">
+                                <div class="month">feb</div>
+                                <div class="day">01</div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="event-detail.html">CE Fest 2017</a>
+                                </header>
+                                <div class="additional-info">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    Location : Central Lab,SEC</div>
+                                <div class="additional-info">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    Time : 3.30 PM</div>
+                            </aside>
+                        </article><!-- /article -->
+                        <article class="event">
+                            <figure class="date">
+                                <div class="month">mar</div>
+                                <div class="day">23</div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="event-detail.html">EEE Fest 2017</a>
+                                </header>
+                                <div class="additional-info">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    Location : Central Lab,SEC</div>
+                                <div class="additional-info">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    Time : 3.30 PM</div>
+                            </aside>
+                        </article><!-- /article -->
+                    </div><!-- /.section-content -->
+                </section><!-- /.events-small -->
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4 col-sm-12">
+                <section id="about">
+                    <header>
+                        <h2>About University</h2>
+                    </header>
+                    <div class="section-content">
+                        <img src="{% static "images/img1.jpeg" %}" alt="" class="add-margin" height="90" width="350">
+                        <p><strong>Sylhet Engineering College (SEC)</strong>established in the year 2007 under the School of Applied Sciences & Technology, Shahjalal University of Science and Technology, is best of its kind with a motto to produce the best in class engineers for the 21st century. As a divisional city of Bangladesh, Sylhet had no full fledged undergraduate level engineering institute. So the Government of Peoples Republic of Bangladesh has established Sylhet Engineering College as an engineering faculty section of Shahjalal University of Science and Technology.
+                    </div><!-- /.section-content -->
+                </section><!-- /.about -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end News, Events, About -->
+
+<!-- Testimonial -->
+<section id="testimonials">
+    <div class="block">
+        <div class="container">
+            <div class="author-carousel">
+                <div class="author">
+                    <blockquote>
+                        <figure class="author-picture"><img src="{% static "images/testominal.jpg" %}" alt=""></figure>
+                        <article class="paragraph-wrapper">
+                            <div class="inner">
+                                <header>Testomonial goes here.Testomonial goes here.Testomonial goes here.Testomonial goes here.Testomonial goes here.Testomonial goes here.</header>
+                                <footer>Dr Muhammed Zafar Iqbal</footer>
+                            </div>
+                        </article>
+                    </blockquote>
+                </div><!-- /.author -->
+            </div><!-- /.author-carousel -->
+        </div><!-- /.container -->
+    </div><!-- /.block -->
+</section>
+<!-- end Testimonial -->
+</div>
+<!-- end Page Content -->
+
+
+{% endblock %}

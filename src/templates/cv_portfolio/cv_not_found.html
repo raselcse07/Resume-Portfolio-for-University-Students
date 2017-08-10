@@ -1,0 +1,6 @@
+{% if request.user.is_authenticated %}
+<h1>You have no Resume</h1><br>
+<a href="{% url "cv_portfolio:upload_resume" %}">Create/Upload Resume</a>
+{% else %}
+    <h1>No Resume Found</h1>
+{% endif %}

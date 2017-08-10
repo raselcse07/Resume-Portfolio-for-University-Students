@@ -1,0 +1,111 @@
+{% extends "Home/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-offset-2">
+                <section class="news-small" id="news-small">
+                    <header>
+                        <h2>Department of {{ dept_name.dept_name }}</h2>
+                        <h4 style="color:blue">Academic Session {% for ob in qs %}{{ ob.academic_year }}{% endfor %}</h4>
+                    </header>
+                    <div class="section-content">
+
+                        <table class="table">
+                                <thead>
+                                      <tr>
+                                        <th>Name</th>
+                                        <th>Session</th>
+                                        <th>Registration</th>
+                                      </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for ob in qs %}
+                                    {% if forloop.counter|divisibleby:2 %}
+
+                                  <tr class="active">
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                            <a href="{% url "Academic:detail" ob.dept_name ob.academic_year ob.reg_number %}">{{ ob.first_name }} {{ ob.last_name }}</a>
+                                        </font>
+                                    </td>
+
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            {{ ob.academic_year }}
+                                        </font>
+                                    </td>
+
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            {{ ob.reg_number }}
+                                        </font>
+                                    </td>
+                                  </tr>
+
+                                  {% else %}
+
+                                  <tr class="warning">
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                            <a href="{% url "Academic:detail" ob.dept_name ob.academic_year ob.reg_number %}">{{ ob.first_name }} {{ ob.last_name }}</a>
+                                        </font>
+                                    </td>
+
+
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                        {{ ob.academic_year }}
+                                        </font>
+                                    </td>
+
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            {{ ob.reg_number }}
+                                        </font>
+                                    </td>
+                                  </tr>
+
+                                  {% endif %}
+
+                                  {% endfor %}
+                                </tbody>
+                        </table>
+
+                    </div>
+
+
+
+                <ul class="pagination">
+
+                            {% if student_list.has_previous %}
+                              <li><a href="?page={{ student_list.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in student_list.paginator.page_range %}
+                              {% if student_list.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if student_list.has_next %}
+                              <li><a href="?page={{ student_list.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                </ul>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

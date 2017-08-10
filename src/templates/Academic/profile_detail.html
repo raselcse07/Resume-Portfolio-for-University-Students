@@ -1,0 +1,736 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- viewport meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>Personal Portfolio</title>
+
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="{% static "Profile/css/owl.carousel.css" %}"/>
+
+    <!-- venobox css -->
+    <link rel="stylesheet" href="{% static "Profile/css/css_venobox.css" %}">
+
+    <!-- font awesome -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+
+    <!-- camera css -->
+    <link rel="stylesheet" href="{% static "Profile/css/camera.css" %}">
+
+    <!-- fontello -->
+    <link rel="stylesheet" href="{% static "Profile/css/stroke.css" %}"/>
+
+    <!-- linear icons css -->
+    <link rel="stylesheet" href="{% static "Profile/css/lnr-icon.css" %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+
+    <!-- animte css -->
+    <link rel="stylesheet" href="{% static "Profile/css/animate.css" %}"/>
+
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static "Profile/css/style.css" %}"/>
+
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static "Profile/css/responsive.css" %}">
+
+
+</head>
+<body>
+
+    <!-- start main wrapper .site -->
+    <div class="site">
+        <!-- start header -->
+        <aside class="nav_sidebar">
+            <div class="menu_wrapper">
+                <div class="header_top">
+                    <div class="toggle_icon hidden-xs">
+                    <span><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                    </span></div>
+                    <div class="head_img_wrap">
+                        {% for ob in add_info %}
+                        <img src="{{ ob.student_image.url }}" alt="Images">
+                        {% endfor %}
+                    </div>
+                    <p class="name">{{ qs.first_name }} {{ qs.last_name }}</p>
+                </div>
+
+                <div class="main_menu">
+                    <ul>
+                        <li class="active"><a href="#home"><span>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        </span><p>Home</p></a></li>
+
+                        <li><a href="#about"><span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        </span><p>about me</p></a></li>
+
+                        <li><a href="#resume"><span>
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        </span><p>resume</p></a></li>
+
+                        <li><a href="#service"><span>
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        </span><p>services</p></a></li>
+
+                        <li><a href="#portfolio"><span>
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        </span><p>portfolio</p></a></li>
+
+                        <li><a href="#contact"><span>
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                        </span><p>contact</p></a></li>
+
+                        {% if request.user.is_authenticated and not request.user.is_admin %}
+
+                        <li><a href="{% url "Users:profile" %}"><span>
+                        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+                    </span><p>back</p></a></li>
+
+                        {% else %}
+
+                        <li><a href="{% url "home" %}"><span>
+                        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+                        </span><p>back</p></a></li>
+
+                        {% endif %}
+
+                    </ul>
+
+                    <div class="social">
+                        <ul>
+                            <li><a href=""><span class="fa fa-facebook"></span></a></li>
+                            <li><a href=""><span class="fa fa-twitter"></span></a></li>
+                            <li><a href=""><span class="fa fa-google-plus"></span></a></li>
+                            <li><a href=""><span class="fa fa-linkedin"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </aside><!-- end header -->
+
+        <!-- menu toggler -->
+        <div class="menu_toggler">
+            <span class="fa fa-bars" aria-hidden="true"></span>
+        </div>
+        <!-- menu toggler -->
+
+
+        <!-- main_content -->
+        <div class="main_content">
+            <!-- #home -->
+            <section id="home" class="home single_page">
+                <!-- hero_content  -->
+                <div class="hero_content">
+                    <div class="big_title typed">
+                        <h1>Hello</h1>
+                        <p>I AM {% for ob in add_info %}{{ ob.full_name }}{% endfor %}</p>
+                    </div>
+                </div><!-- hero_content -->
+            </section><!-- end #home -->
+
+            <!-- about -->
+            <section id="about" class="about single_page">
+                <!-- start about_area -->
+                <div class="about_area section_padding">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>ABOUT ME</h2>
+                                    <p class="sub_title">{{ qs.first_name }} {{ qs.last_name }}</p>
+                                </div>
+                            </div><!-- .col-md-12 -->
+                        </div><!-- row -->
+
+                        <!-- start row -->
+                        <div class="row">
+                            <!-- col-md-4 -->
+                            <div class="col-md-4 col-sm-6 col-lg-4 col-md-offset-0 col-sm-offset-3 v_middle_md">
+                                <div class="about_img">
+                                    {% for ob in add_info %}
+                                    <img src="{{ ob.student_image.url }}" alt="student_img">
+                                    {% endfor %}
+                                </div>
+                            </div><!-- end col-md-4 -->
+
+                            <!-- .col-md-8 -->
+                            <div class="col-md-8 col-sm-12 v_middle_md">
+                                <!-- about infos -->
+                                <div class="about_info">
+                                    <ul>
+                                        <li>
+                                            <p>Full Name</p>
+                                            <span>{{ qs.first_name }} {{ qs.last_name }}</span>
+                                        </li>
+                                        <li>
+                                            <p>Address</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.present_address }}</span>
+                                            {% endfor %}
+                                        </li>
+
+                                        <li>
+                                            <p>Phone</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.cell_number }}</span>
+                                            {% endfor %}
+                                        </li>
+
+                                        <li>
+                                            <p>Email</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.email }} </span>
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>
+                                            <p>Date of Birthday</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.birthday }}</span>
+                                            {% endfor %}
+                                        </li>
+                                        <li>
+                                            <p>Fathers Name</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.fathers_name }}</span>
+                                            {% endfor %}
+                                        </li>
+                                        <li>
+                                            <p>Mothers Name</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.mothers_name }}</span>
+                                            {% endfor %}
+                                        </li>
+                                        <li>
+                                            <p>Job</p>
+                                            {% for ob in add_info %}
+                                            <span>{{ ob.work_position }}</span>
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- about_content -->
+                                <div class="about_content hidden_md hidden_sm">
+                                    {% for ob in add_info %}
+                                    <p>{{ ob.about }}</p>
+                                    {% endfor %}
+
+                                    <!-- about_btn -->
+                                    <div class="about_btn">
+
+                                        <a href="{% url "Academic:cv" qs.dept_name qs.academic_year qs.reg_number %}" class="btn" target="_blank">download resume</a>
+                                    </div><!-- end about_btn -->
+                                </div><!-- end about_content -->
+                            </div><!-- end .col-md-8 -->
+                        </div><!-- end row -->
+
+                        <!-- start row -->
+                        <div class="row">
+                            <!-- start col-md-12 -->
+                            <div class="col-md-12">
+                                <!-- about_content -->
+                                <div class="about_content visible_md visible_sm">
+                                    {% for ob in add_info %}
+                                    <p>{{ ob.about }}</p>
+                                    {% endfor %}
+
+
+                                    <!-- about_btn -->
+                                    <div class="about_btn">
+                                        <a href="#" class="btn">download resume</a>
+                                    </div><!-- end about_btn -->
+                                </div><!-- end about_content -->
+                            </div><!-- end col-md-12 -->
+                            </div><!-- end /.row -->
+                    </div><!-- end container -->
+                </div><!-- end about_area -->
+            </section><!-- end about -->
+
+            <!-- #resume -->
+            <section id="resume" class="resume single_page">
+                <!-- resume_area -->
+                <div class="resume_area section_padding">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>my skills</h2>
+                                    <p class="sub_title">my special expertise</p>
+                                </div>
+                            </div><!-- .col-md-12 -->
+                        </div><!-- end .row -->
+
+                        <!-- row -->
+                        <div class="row">
+                            <!-- col-md-6 -->
+                            <div class="col-md-6">
+                                <div class="resume_are_title">
+                                    <span>
+                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                    </span><p>EDUCATION</p>
+                                </div>
+
+                                <!-- timeline -->
+                                <ul class="timeline">
+                                    {% for ob in education %}
+                                    <li>
+
+                                        <div class="time_period">
+                                            <p>Passing Year : {{ ob.passing_year }}</p>
+
+                                        </div>
+                                        <div class="timeline_title">
+                                            <h4>Institute : {{ ob.institute_name }}</h4>
+                                        </div>
+                                        <div class="about_time_period">
+                                            <p>Degree : {{ ob.degree }}</p>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                <!-- end timeline -->
+                            </div><!-- end col-md-6 -->
+
+                            <!-- col-md-6 -->
+                            <div class="col-md-6">
+                                <div class="resume_are_title">
+                                    <span><i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    </span><p>work EXPERIENCE</p>
+                                </div>
+
+                                <!-- timeline -->
+                                <ul class="timeline no-margin">
+
+                                    {% for ob in work %}
+                                    <li>
+                                        <div class="time_period">
+                                            <p>{{ ob.start_date }} - {{ ob.end_date }}</p>
+                                        </div>
+                                        <div class="timeline_title">
+                                            <h4>{{ ob.position }}</h4>
+                                        </div>
+                                        <div class="about_time_period">
+                                            <p>{{ ob.company_name }}</p>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                <!-- end timeline -->
+                            </div><!-- end col-md-6 -->
+                        </div><!-- end .row -->
+                    </div><!-- end .container -->
+                </div><!-- end resume_area -->
+
+                <!-- skill_area -->
+                <div class="skill_area section_padding">
+                    <!-- start container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>my skills</h2>
+                                    <p class="sub_title">my special expertise</p>
+                                </div>
+                            </div><!-- .col-md-12 -->
+                        </div><!-- row -->
+
+                        <!-- row -->
+                        <div class="row">
+                            <!-- col-md-6 -->
+                            <div class="col-md-8 col-sm-8">
+                                <!-- skill_wrapper -->
+                                <div class="skill_wrapper">
+                                    <!-- single_skill -->
+                                    {% for ob in skill_ %}
+                                    <div class="single_skill">
+                                        <div class="labels clearfix">
+                                            <p>{{ ob.skills }}</p>
+                                            <span data-width="{{ ob.skill_level }}">0%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar" data-anim="slideInLeft" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="percent_indicator"></span>
+                                            <span class="sr-only">{{ ob.skill_level }} Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div><!-- end skill_wrapper -->
+                            </div><!-- end .col-md-6 -->
+                        </div><!-- end row -->
+                    </div><!-- end .container -->
+                </div><!-- end skill_area -->
+
+                <!-- start clients area -->
+                <div class="clients_area section_padding">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>Clients</h2>
+                                    <p class="sub_title">People who trusted me</p>
+                                </div>
+                            </div><!-- .col-md-12 -->
+                        </div><!-- row -->
+
+                        <!-- start .row -->
+                        <div class="row">
+                            <!-- start col-md-12 -->
+                            <div class="col-md-12">
+                                <div>
+                                    {% for ob in clients %}
+                                    <img src="{{ ob.client_image.url }}" alt="" width="150px" height="70px">
+                                    {% endfor %}
+                                </div>
+                            </div><!-- end col-md-12 -->
+                        </div><!-- end .row -->
+                    </div>
+                    <!-- end container -->
+                </div>
+                <!-- end clients area -->
+            </section><!-- end #resume -->
+
+            <!-- #service  -->
+            <section id="service" class="service single_page">
+                <!-- services_area -->
+                <div class="service_area section_padding">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>services</h2>
+                                    <p class="sub_title">what i can do for you</p>
+                                </div>
+                            </div><!-- .col-md-12 -->
+                        </div><!-- end .row -->
+
+
+                        <!-- row -->
+                        <div class="row">
+                            <!-- single_service -->
+                            {% for ob in service %}
+                            <div class="col-md-6 col-sm-6 col-lg-4">
+                                <div class="single_service">
+                                    <div class="service_icon"><span><i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span></div>
+                                    <div class="service_content">
+                                        <h5 class="service_title">{{ ob.service_type }}</h5>
+                                        <p>{{ ob.little_description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div><!-- .row -->
+                    </div><!-- end .container -->
+                </div><!-- end services_area -->
+
+                <!-- counterup_area -->
+                <div class="counterup_area">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="counter_wrapper">
+                                    <!-- start single_counter_wrapper -->
+                                    <div class="single_counter_wrapper tiny_fullwidth xs_halfwidth">
+                                        <!-- start count_icon -->
+                                        <div class="count_icon">
+                                            <span><i class="fa fa-check" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <!-- start count -->
+                                        {% for ob in success %}
+                                        <div class="count">
+                                            <span class="count_up">{{ ob.total_complete_project }}</span>
+                                            <p>Projects completed</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- start single_counter_wrapper -->
+                                    <div class="single_counter_wrapper tiny_fullwidth xs_halfwidth">
+                                        <!-- start count_icon -->
+                                        <div class="count_icon">
+                                            <span><i class="fa fa-smile-o" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+
+                                        <!-- start count -->
+                                        {% for ob in success %}
+                                        <div class="count">
+                                            <span class="count_up">{{ ob.total_happy_clients }}</span>
+                                            <p>HAPPY CLIENTS</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- start single_counter_wrapper -->
+                                    <div class="single_counter_wrapper tiny_fullwidth xs_halfwidth">
+                                        <!-- start count_icon -->
+                                        <div class="count_icon">
+                                            <span>
+                                                <i class="fa fa-trophy" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+
+                                        <!-- start count -->
+                                        {% for ob in success %}
+                                        <div class="count">
+                                            <span class="count_up">{{ ob.awards_won }}</span>
+                                            <p>AWARDS WON</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- start single_counter_wrapper -->
+                                    <div class="single_counter_wrapper tiny_fullwidth xs_halfwidth">
+                                        <!-- start count_icon -->
+                                        <div class="count_icon">
+                                            <span>
+                                                <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+
+                                        <!-- start count -->
+                                        {% for ob in success %}
+                                        <div class="count">
+                                            <span class="count_up">{{ ob.total_ongoing_project }}</span>
+                                            <p>ON GOING</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- end .row -->
+                    </div><!-- end .container -->
+                </div>
+                <!-- end .counterup -->
+
+                <!-- working_process -->
+                <div class="working_process section_padding">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section_title">
+                                    <h2>my WORKING PROCESS</h2>
+                                    <p class="sub_title">METHOD OF BUSINESS PROCESS</p>
+                                </div>
+                            </div>
+                        </div><!-- end .row -->
+
+                        <!-- row -->
+                        <div class="row">
+                            <!-- col-md-4 -->
+                            <div class="col-md-4 ltr">
+
+                                <!-- single_working_process -->
+
+                                {% for ob in work_process1 %}
+
+                                <div class="single_working_process sm-half-width process_1">
+                                    <p class="step">
+                                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                                    </p>
+                                    <h4 class="process_title">{{ ob.title }}</h4>
+                                    <p>{{ ob.short_note }}</p>
+                                </div>
+
+                                {% endfor %}
+
+                            </div><!-- end col-md-4 -->
+
+                            <!-- col-md-4 -->
+                            <div class="col-md-4 hidden-sm hidden-xs">
+                                <div class="working_process_circle">
+                                    <h1>WORKING PROCESS</h1>
+                                    <span class="dots top_left"></span>
+                                    <span class="dots bottom_left"></span>
+                                    <span class="dots top_right"></span>
+                                    <span class="dots bottom_right"></span>
+                                </div>
+                            </div><!-- end .col-md-4 -->
+
+                            <!-- col-md-4 -->
+                            <div class="col-md-4 rtl">
+
+                                <!-- single_working_process -->
+
+                                {% for ob in work_process2 %}
+                                <div class="single_working_process sm-half-width process_3">
+                                    <p class="step">
+                                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                                    </p>
+                                    <h4 class="process_title">{{ ob.title }}</h4>
+                                    <p>{{ ob.short_note }}</p>
+                                </div>
+                                {% endfor %}
+
+                            </div><!-- end col-md-4 -->
+                        </div><!-- end row -->
+                    </div><!-- end container -->
+                </div><!-- end working_process -->
+            </section><!-- end #service_area  -->
+
+            <!-- #portfolio area -->
+            <section id="portfolio" class="portfolio section_padding single_page">
+                <!-- container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section_title">
+                                <h2>portfolio</h2>
+                                <p class="sub_title">my latest work</p>
+                            </div>
+                        </div>
+                    </div><!-- end .row -->
+
+
+                    <div class="row" data-uk-grid="{controls: '#sorting_control'}">
+                        <!-- single_item -->
+                        {% for ob in port_folio %}
+                        <div class="col-md-4  col-xs-12 col-sm-6 md-half-width" data-uk-filter="{{ ob.project_type }}">
+                            <div class="single_portfolio_item">
+                                <figure>
+                                    <div class="portfolio_img">
+                                        <img src="{{ ob.project_image.url }}" alt="Portfolio" height="200px">
+                                    </div>
+
+                                    <figcaption>
+                                        <p>{{ ob.project_name }}</p>
+                                        <div class="classless">
+                                            <div class="icon"><a href="{% url "cv_portfolio:portfolio_detail" ob.pk %}"><span class="fa fa-link"></span></a></div>
+                                            <a class="icon venobox" href="{{ ob.project_image.url }}"><span class="fa fa-search"></span></a>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div><!-- end single_item -->
+                        {% endfor %}
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </section>
+
+
+            <!-- start #contact -->
+            <section id="contact" class="contact section_padding single_page">
+                <!-- start .container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section_title">
+                                <h2>LET'S TALK</h2>
+                                <p class="sub_title">Get in touch with me</p>
+                            </div>
+                        </div>
+                    </div><!-- end .row -->
+
+                    <!-- start row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="contact_txt">
+                                <p>Please Feel free to get in Touch Anytime, whether for Work Inquiries or to just say Hello!</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5 col-sm-6 col-lg-5 col-lg-offset-1">
+                            <ul class="contact_info">
+                                <li>
+                                    <p class="info_title">ADDRESS</p>
+                                    <p class="info">{% for ob in add_info %}{{ ob.present_address }}{% endfor %}</p>
+                                </li>
+                                <li>
+                                    <p class="info_title">CONTACT INFO</p>
+                                    <p class="info">{% for ob in add_info %}{{ ob.email }} <br> {{ ob.cell_number }}{% endfor %}</p>
+                            </ul>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- start /.container -->
+
+                <!-- start footer -->
+                    <footer class="footer">
+                        <p>	&copy; 2017 copyright Rida all right reserved. Designed and developed by <a href="">Md Rasel</a></p>
+                    </footer>
+                <!-- end footer -->
+            </section>
+            <!-- end #contact -->
+
+        </div><!-- end main_content -->
+    </div><!-- end main wrapper /.site -->
+
+
+
+    <!--//////////////////// JS GOES HERE ////////////////-->
+
+    <!-- jquery latest version -->
+    <script src="{% static "Profile/js/jquery-1.12.3.js" %}"></script>
+
+    <!-- bootstrap js -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+    <!-- jquery easing 1.3 -->
+    <script src="{% static "Profile/js/jquery.easing1.3.js" %}"></script>
+
+    <!-- Owl carousel js-->
+    <script src="{% static "Profile/js/carousel.min.js" %}"></script>
+
+    <!-- venobox js -->
+    <script src="{% static "Profile/js/venobox.min.js" %}"></script>
+
+    <!-- waypoint js -->
+    <script src="{% static "Profile/js/waypoints.min.js" %}"></script>
+
+    <!-- Counter up js-->
+    <script src="{% static "Profile/js/jquery.counterup.min.js" %}"></script>
+
+    <!-- google map js -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBeySPFGz7DIUTrReCRQT6HYaMM0ia0knA"></script>
+
+    <!-- uikit js -->
+    <script src="{% static "Profile/js/uikit.min.js" %}"></script>
+
+    <!-- jquery uikit js -->
+    <script src="{% static "Profile/js/grid.min.js" %}"></script>
+
+    <!-- Typed js -->
+    <script src="{% static "Profile/js/typed.min.js" %}"></script>
+
+    <!-- jQuery tubler js -->
+    <script src="{% static "Profile/js/tubular.1.0.js" %}"></script>
+
+    <!-- Main js -->
+    <script src="{% static "Profile/js/main.js" %}"></script>
+
+    <!-- GOOGLE MAP JS -->
+    <script type="text/javascript" src="{% static "Profile/js/map.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "Home/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-offset-3">
+                <section class="news-small" id="news-small">
+                    <header>
+                        <h1>Department List</h>
+                    </header>
+                    <div class="section-content">
+
+                        <table class="table">
+
+                                <tbody>
+                                    {% for ob in dept_list_qs %}
+                                    {% if forloop.counter|divisibleby:2 %}
+                                  <tr class="active">
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                            <a href="{% url "Academic:dept_detail"  ob.dept_name_short %}">{{ ob.dept_name }}</a>
+                                        </font>
+                                    </td>
+                                  </tr>
+                                  {% else %}
+                                  <tr class="warning">
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                            <a href="{% url "Academic:dept_detail"  ob.dept_name_short %}">{{ ob.dept_name }}</a>
+                                        </font>
+                                    </td>
+                                  </tr>
+                                  {% endif %}
+                                  {% endfor %}
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

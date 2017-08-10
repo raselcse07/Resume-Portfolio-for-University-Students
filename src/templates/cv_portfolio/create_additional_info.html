@@ -1,0 +1,63 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Profile | Additional Informations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+
+    .main{
+       height: auto;  /* footer height */
+       padding-top: 20px;
+       display: block;
+       margin-bottom: 1%;
+       box-sizing: border-box;
+       position: relative;
+       width: auto;
+    }
+</style>
+
+</head>
+{% if request.user.is_authenticated %}
+<body>
+<section class="main">
+            <div class="container">
+                <div class-"row">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="well">
+                            <h1 style="text-align:center;color:green;font-family:serif;">Create Additional Informations</h1>
+                            <hr style = 'background-color:#000000; border-width:0; color:#000000; height:2px; lineheight:0; display: inline-block; text-align: left; width:100%;' />
+                            <form action="" method="POST" enctype='multipart/form-data'>{% csrf_token %}
+                                    {{ form|crispy }}
+                                    <input type="submit" value="Create" class="btn btn-success">
+                            </form>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <a href="{% url "Users:profile" %}"><span class="glyphicon glyphicon-arrow-left"></span> Back To Admin Panel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+        {% else %}
+        <div class="container">
+            <div class-"row">
+                <div class="col-xs-8 col-md-8 col-md-push-2">
+                    <div class="well">
+                        <font face="verdana" color="green" size="10">Please Login</font><br>
+                        <a href="{% url "Users:login" %}" class="btn btn-success">Login</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+</section>
+{% endif %}
+</body>
+</html>

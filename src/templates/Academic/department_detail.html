@@ -1,0 +1,58 @@
+{% extends "Home/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-offset-3">
+                <section class="news-small" id="news-small">
+                    <header>
+                        <h1>Batch List</h>
+                    </header>
+                    <div class="section-content">
+                        {% if qs.count == 0 %}
+                        <font face="verdana" color="red" size="4">
+                            No Batch Found !!!
+                        </font>
+                        {% else %}
+                        <font face="verdana" color="blue" size="4">
+                            Total {{ qs.count }} Batch Found.
+                        </font>
+                        {% endif %}
+                        <br>
+
+                        <table class="table">
+
+                            <tbody>
+                                {% for ob in qs %}
+                                {% if forloop.counter|divisibleby:2 %}
+                                    <tr class="active">
+                                        <td>
+                                            <font face="verdana" color="green"  size="5">
+                                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                                <a href="{% url "Academic:profile_list" ob.dept_name ob.academic_year  %}">{{ ob.academic_year }}</a>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                <tr class="warning">
+                                    <td>
+                                        <font face="verdana" color="green"  size="5">
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                            <a href="{% url "Academic:profile_list" ob.dept_name ob.academic_year  %}">{{ ob.academic_year }}</a>
+                                        </font>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

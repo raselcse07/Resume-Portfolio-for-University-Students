@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Profile | Notifications</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+
+    .main{
+       height: auto;  /* footer height */
+       padding-top: 20px;
+       display: block;
+       margin-bottom: 1%; /* space between content and footer */
+       box-sizing: border-box;
+       position: relative;
+       width: auto;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+{% if request.user.is_authenticated %}
+    <section class="main">
+                <div class="container">
+                    <div class-"row">
+                        <div class="col-xs-8 col-md-8 col-md-push-2">
+                            <div class="well">
+                                <h4 style="text-align:center;color:red">Error Found</h4>
+                                <hr style = 'background-color:#000000; border-width:0; color:#000000; height:2px; lineheight:0; display: inline-block; text-align: left; width:100%;' />
+
+                                <h1>Informations Already Exists.</h1>
+                            </div>
+                            <a href="{% url "Users:profile" %}">
+                            <span class="glyphicon glyphicon-arrow-left"></span>
+                            Back to Admin Panel</a>
+                        </div>
+                    </div>
+                </div>
+            </body>
+    </section>
+{% endif %}
+</div>
+
+
+
+
+</body>
+</html>

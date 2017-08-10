@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Theme Starz">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "Base/css/bootstrap.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "Base/css/selectize.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "Base/css/owl.carousel.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "Base/css/vanillabox.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "Base/css/vanillabox.css" %" type="text/css">
+
+
+    <link rel="stylesheet" href="{% static "Base/css/style.css" %}" type="text/css">
+
+    <title>University of Sylhet</title>
+
+</head>
+
+<body class="page-homepage-carousel">
+<!-- Wrapper -->
+<div class="wrapper">
+<!-- Header -->
+<div class="navigation-wrapper">
+    <div class="secondary-navigation-wrapper">
+        <div class="container">
+            <div class="navigation-contact pull-left">Call Us:  <span class="opacity-70">000-123-456-789</span></div>
+            <ul class="secondary-navigation list-unstyled">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Terms & Contidions</a></li>
+            </ul>
+        </div>
+    </div><!-- /.secondary-navigation -->
+    <div class="primary-navigation-wrapper">
+        <header class="navbar" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand nav" id="brand">
+                        <a href="{% url "home" %}"><img src="{% static "images/logo.png" %}" alt="brand"></a>
+                    </div>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{% url "home" %}">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url "Academic:dept_list" %}">Departments</a>
+                        </li>
+                        {% if request.user.is_authenticated and not request.user.is_admin %}
+                        <li><a href="{% url "Users:logout" %}">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                            {{ request.user }}</a></li>
+                        {% else %}
+                        <li><a href="{% url "Users:login" %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </nav><!-- /.navbar collapse-->
+            </div><!-- /.container -->
+        </header><!-- /.navbar -->
+    </div><!-- /.primary-navigation -->
+
+    <div class="background">
+
+    </div>
+</div>
+<!-- end Header -->
+
+<!-- Page Content -->
+<div id="page-content">
+<!-- Slider -->
+<div id="homepage-carousel">
+    <div class="container">
+        <div class="homepage-carousel-wrapper">
+            <div class="row">
+                <div class="col-md-6 col-sm-7">
+                    <div class="image-carousel">
+                        <div class="image-carousel-slide"><img src="{% static "images/img1.jpeg" %}" alt="" height="300" width="600" class="responsive-image"></div>
+                        <div class="image-carousel-slide"><img src="{% static "images/img2.jpeg" %}" alt="" height="300" width="600" class="responsive-image"></div>
+                        <div class="image-carousel-slide"><img src="{% static "images/img3.jpeg" %}" alt="" height="300" width="600" class="responsive-image"></div>
+                    </div><!-- /.slider-image -->
+                </div><!-- /.col-md-6 -->
+                <div class="col-md-6 col-sm-5">
+                    <div class="slider-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if request.user.is_authenticated and not request.user.is_admin %}
+                                <h1>You are logged in.You can check your Dashboard.</h1>
+                                <a href="{% url "Users:profile" %}" class="btn btn-framed pull-right">Dashboard</a>
+                                {% else %}
+                                <h1>Join the comunity of modern thinking students</h1>
+                                <a href="{% url "Users:register" %}" class="btn btn-framed pull-right">Register</a>
+                                {% endif %}
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.slider-content -->
+                </div><!-- /.col-md-6 -->
+            </div><!-- /.row -->
+            <div class="background"></div>
+        </div><!-- /.slider-wrapper -->
+        <div class="slider-inner"></div>
+    </div><!-- /.container -->
+</div>
+<!-- end Slider -->
+
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<footer id="page-footer">
+    <section id="footer-top">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-social">
+                    <figure>Follow us:</figure>
+                    <div class="icons">
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-pinterest"></i></a>
+                        <a href=""><i class="fa fa-youtube-play"></i></a>
+                    </div><!-- /.icons -->
+                </div><!-- /.social -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </section><!-- /#footer-top -->
+
+    <section id="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <aside class="logo">
+                        <img src="{% static "images/logo.png" %}" class="vertical-center" height="100px" width="250px">
+                    </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>Contact Us</h4></header>
+                        <address>
+                            <strong>Sylhet Engineering College</strong>
+                            <br>
+                            <span>Alurtol Road</span>
+                            <br><br>
+                            <span>Tilagarh - 3100</span>
+                            <br>
+                            <abbr title="Telephone">Telephone:</abbr> +1 (734) 123-4567
+                            <br>
+                            <abbr title="Email">Email:</abbr>info@sec.ac.bd
+                        </address>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>Important Links</h4></header>
+                        <ul class="list-links">
+                            <li><a href="http://sec.ac.bd" target="_blank">Sylhet Engineering College</a></li>
+                            <li><a href="http://sec.ac.bd" target="_blank">Sylhet Engineering College</a></li>
+                            <li><a href="http://sec.ac.bd" target="_blank">Sylhet Engineering College</a></li>
+                            <li><a href="http://sec.ac.bd" target="_blank">Sylhet Engineering College</a></li>
+                        </ul>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="background"></div>
+    </section><!-- /#footer-content -->
+
+    <section id="footer-bottom">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="copyright">© SEC, All rights reserved</div><!-- /.copyright -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </section><!-- /#footer-bottom -->
+
+</footer>
+<!-- end Footer -->
+
+</div>
+<!-- end Wrapper -->
+
+<script type="text/javascript" src="{% static "Base/js/jquery-2.1.0.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/jquery-migrate-1.2.1.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/bootstrap.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/selectize.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/owl.carousel.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/assets_js_jquery.validate.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/assets_js_jquery.placeholder.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/assets_js_jQuery.equalHeights.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/assets_js_icheck.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/jquery.vanillabox-0.1.5.min.js" %}"></script>
+<script type="text/javascript" src="{% static "Base/js/assetss_js_retina-1.1.0.min.js" %}"></script>
+
+<script type="text/javascript" src="{% static "Base/js/assets_js_custom.js" %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <title>Profile</title>
+  <style>
+  .links{
+      text-align: center;
+  }
+  </style>
+
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<div class="container">
+  <h2 style="color:red;">Error!!!</h2>
+  <div class="well">
+      <font face="verdana" color="red" size="5">No profile found.Please add below informations first.</font>
+  </div>
+
+  <div class="well">
+      <a href="{% url "cv_portfolio:upload_resume" %}" class="btn btn-success" target="_blank">Upload Resume</a>
+      <a href="{% url "cv_portfolio:create_aditionalinfo" %}" class="btn btn-success" target="_blank">Add Additional Informatione</a>
+      {% if not skill_ %}
+      <a href="{% url "cv_portfolio:create_skill" %}" class="btn btn-success" target="_blank">Add Skills</a>
+      {% endif %}
+      <a href="{% url "cv_portfolio:create_edu" %}" class="btn btn-success" target="_blank">Add Educational Informations</a>
+      <a href="{% url "cv_portfolio:create_work" %}" class="btn btn-success" target="_blank">Add Work History</a>
+      <a href="{% url "cv_portfolio:create_portfolio" %}" class="btn btn-success" target="_blank">Add Portfolio</a>
+  </div>
+</div>
+{% else %}
+<div class="container">
+  <h2 style="color:red;">No Profile Found!!!</h2>
+  <div class="well">
+      <font face="verdana" color="red" size="5">User hasn't create any profile</font>
+  </div>
+{% endif %}
+</body>
+</html>
