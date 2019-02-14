@@ -28,14 +28,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'djnago.email@gmail.com'
-EMAIL_HOST_PASSWORD = '066924Sharmin'
+EMAIL_HOST_USER = 'your email'
+EMAIL_HOST_PASSWORD = 'your password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Md Rasel <djnago.email@gmail.com>'
+DEFAULT_FROM_EMAIL = 'your name <your email>'
 
 ADMINS = (
-    ('Md Rasel', 'djnago.email@gmail.com'),
+    ('Your Name', 'your email'),
 )
 MANAGERS = ADMINS
 
