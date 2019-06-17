@@ -16,5 +16,6 @@ Stay Connected an Ex-Students Management Software of a University. The main purp
 # Technologies	
 |Backend|Fontend|Database|
 |-------|-------|--------|
-|Python, Django|HTML5, CSS3, Javascript, Bootstrap|PostgreSQL
-                                                    test|
+|Python, Django|HTML5, CSS3, Javascript, Bootstrap|PostgreSQL|
+
+#### For more please visit - http://raselsplanet.com/project/stay-connected/
