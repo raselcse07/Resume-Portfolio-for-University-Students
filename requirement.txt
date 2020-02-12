@@ -1,4 +1,4 @@
-Django==1.11.3
+Django==1.11.28
 django-crispy-forms==1.6.1
 olefile==0.44
 Pillow==4.2.1
